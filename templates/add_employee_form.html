@@ -19,6 +19,10 @@
             <p>
                 {{field.label}}
                 {{field}}
+
+                {% for err in field.errors %}
+                {{err}}
+                {% endfor %}
             </p>
             {% endfor %}
             <button class="btn btn-primary">Submit</button>

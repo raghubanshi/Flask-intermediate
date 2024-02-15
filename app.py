@@ -36,6 +36,7 @@ def add_snack():
         return redirect("/")
     
     else:
+        raise
         return render_template("snack_add_form.html", form=form)
     
 
@@ -43,7 +44,8 @@ def add_snack():
 def add_employee():
     form = NewEmployeeForm()
     depts = db.session.query(Department.dept_code, Department.dept_name)
-    form.dept_code.choices = depts
+    choices = [(dept.dept_code, dept.dept_name) for dept in depts]
+    form.dept_code.choices = choices
     if form.validate_on_submit():
         name = form.name.data
         state = form.state.data

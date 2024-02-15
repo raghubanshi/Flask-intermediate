@@ -53,6 +53,7 @@ class EmployeeProject(db.Model):
     proj_code = db.Column(db.Text,
                           db.ForeignKey("projects.proj_code"),
                           primary_key=True)
+    
     role = db.Column(db.Text)
     
 def get_directory():
